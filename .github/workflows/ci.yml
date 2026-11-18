@@ -1,0 +1,10 @@
+name: ci
+on: [push, pull_request, repository_dispatch]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/run.sh
